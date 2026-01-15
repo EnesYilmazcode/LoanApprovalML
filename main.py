@@ -18,3 +18,13 @@ x_std = x.std(dim=0)
 x = (x - x_mean) / x_std
 
 
+model = nn.Sequential(
+    nn.Linear(9, 32),
+    nn.ReLU(),
+    nn.Linear(32, 16),
+    nn.ReLU(),
+    nn.Linear(16, 1)
+)
+
+loss_fn = nn.BCEWithLogitsLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
